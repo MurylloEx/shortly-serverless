@@ -1,5 +1,5 @@
 {
-  "name": "@learning-sst-framework/functions",
+  "name": "@shortly/lambda",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

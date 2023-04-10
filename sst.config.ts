@@ -1,14 +1,3 @@
-import { SSTConfig } from 'sst';
-import { MyStack } from './stacks/MyStack';
+import { SstConfig } from './src/main';
 
-export default {
-  config(input) {
-    return {
-      name: 'learning-sst-framework',
-      region: 'us-east-1'
-    };
-  },
-  stacks(app) {
-    app.stack(MyStack);
-  }
-} satisfies SSTConfig;
+export default SstConfig;

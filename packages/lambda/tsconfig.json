@@ -4,7 +4,7 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@learning-sst-framework/core/*": ["../core/src/*"]
+      "@shortly/core": ["../core/src"]
     }
   }
 }
