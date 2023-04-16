@@ -19,8 +19,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.310.0"
-  }
+  ]
 }

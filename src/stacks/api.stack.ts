@@ -1,6 +1,6 @@
 import { Router } from 'src/routes';
 import { TableBuilder } from 'src/database';
-import { SchemaShortenUrls } from 'src/database/schemas';
+import { SchemaShortUrl } from 'src/database/schemas';
 import { StackContext, Api } from 'sst/constructs';
 
 export function ApiStack({ stack }: StackContext) {
@@ -8,12 +8,12 @@ export function ApiStack({ stack }: StackContext) {
     routes: Router.build()
   });
 
-  const TableShortenUrls = TableBuilder.create('ShortenUrls')
+  const TableShortUrl = TableBuilder.create('ShortUrl')
     .withScope(stack)
-    .withSchema(SchemaShortenUrls)
+    .withSchema(SchemaShortUrl)
     .build();
 
-  api.bind([TableShortenUrls]);
+  api.bind([TableShortUrl]);
 
   api.attachPermissions(['dynamodb']);
 

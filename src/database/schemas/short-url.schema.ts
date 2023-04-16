@@ -1,6 +1,6 @@
 import { TableProps } from 'sst/constructs';
 
-export const SchemaShortenUrls: TableProps = {
+export const SchemaShortUrl: TableProps = {
   fields: {
     pk: 'string',
     code: 'string',
