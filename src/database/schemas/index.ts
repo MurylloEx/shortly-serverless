@@ -1,1 +1,1 @@
-export * from './short-url.schema';
+export * from './shortly.schema';
