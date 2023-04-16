@@ -1,5 +1,5 @@
-import { Lambda } from './factories';
-import { RouterBuilder } from './builders';
+import { Lambda } from 'src/routes/factories';
+import { RouterBuilder } from 'src/routes/builders';
 
 export const Router = RouterBuilder.root('/');
 

@@ -1,5 +1,5 @@
 import { SSTConfig } from 'sst';
-import { ApiStack } from './stacks';
+import { ApiStack, DynamoStack } from 'src/stacks';
 
 export const SstConfig: SSTConfig = {
   config(input) {
@@ -14,6 +14,6 @@ export const SstConfig: SSTConfig = {
       architecture: "arm_64",
     });
 
-    app.stack(ApiStack);
+    app.stack(DynamoStack).stack(ApiStack);
   }
 }

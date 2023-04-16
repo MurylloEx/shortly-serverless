@@ -5,7 +5,7 @@ import { DynamoDocumentClient } from 'src/database/client';
 
 const Options = {
   client: DynamoDocumentClient, 
-  table: 'ShortUrl'
+  table: 'Shortly'
 }
 
 export const ShortUrl = new Entity({
