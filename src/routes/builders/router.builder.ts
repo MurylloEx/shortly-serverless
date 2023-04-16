@@ -1,8 +1,8 @@
 import { posix } from 'path';
 import {
-  FunctionInlineDefinition,
   ApiAuthorizer,
-  ApiRouteProps
+  ApiRouteProps,
+  FunctionInlineDefinition
 } from 'sst/constructs';
 
 enum HttpMethod {
