@@ -1,7 +1,6 @@
 import 'reflect-metadata';
 
-function now() {
-  return new Date().toISOString();
-}
-
-export const Time = { now };
+export * from './database';
+export * from './protocols';
+export * from './repositories';
+//export * from './services';

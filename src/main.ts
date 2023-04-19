@@ -10,8 +10,8 @@ export const SstConfig: SSTConfig = {
   },
   stacks(app) {
     app.setDefaultFunctionProps({
-      runtime: "nodejs16.x",
-      architecture: "arm_64",
+      runtime: 'nodejs16.x',
+      architecture: 'arm_64',
     });
 
     app.stack(DynamoStack).stack(ApiStack);

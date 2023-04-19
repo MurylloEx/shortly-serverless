@@ -4,6 +4,8 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
+      "src": ["./src"],
+      "src/*": ["./src/*"],
       "@shortly/core": ["../core/src"],
       "@shortly/core/*": ["../core/src/*"]
     }

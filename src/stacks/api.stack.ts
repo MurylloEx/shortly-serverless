@@ -3,14 +3,13 @@ import { StackContext, Api, use } from 'sst/constructs';
 import { DynamoStack } from './dynamo.stack';
 
 export function ApiStack({ stack }: StackContext) {
-  const { TableShortUrl } = use(DynamoStack);
+  const { TableShortly } = use(DynamoStack);
 
-  const api = new Api(stack, 'api', {
-    routes: Router.build()
-  });
+  const api = new Api(stack, 'ShortlyApi');
 
-  api.bind([TableShortUrl]);
+  api.bind([TableShortly]);
   api.attachPermissions(['dynamodb']);
+  api.addRoutes(stack, Router.build());
 
   stack.addOutputs({
     ApiEndpoint: api.url,

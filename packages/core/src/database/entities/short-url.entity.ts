@@ -33,11 +33,13 @@ export const ShortUrl = new Entity({
     },
     createdAt: {
       type: 'number',
-      default: () => +new Date()
+      default: () => Date.now()
     },
     updatedAt: {
       type: 'number',
-      set: () => +new Date()
+      readOnly: true,
+      watch: '*',
+      set: () => Date.now()
     },
     deletedAt: {
       type: 'number',
