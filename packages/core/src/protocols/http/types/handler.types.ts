@@ -5,5 +5,5 @@ import {
   Context
 } from 'aws-lambda';
 
-export type EndpointHandler = (req: Request, res: Response) => void | Promise<void>;
+export type EndpointHandler<T extends object> = (req: Request, res: Response) => void | T | Promise<void> | Promise<T>;
 export type EndpointEventHandler = (event: APIGatewayProxyEventV2, context: Context) => Promise<APIGatewayProxyStructuredResultV2>;
