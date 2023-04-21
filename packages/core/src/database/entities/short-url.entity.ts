@@ -1,11 +1,12 @@
 import { v4 as uuid } from 'uuid';
 import { Entity } from 'electrodb';
+import { Table } from 'sst/node/table';
 import { generate } from 'randomstring';
 import { DynamoDocumentClient } from 'src/database/client';
 
 const Options = {
   client: DynamoDocumentClient, 
-  table: 'Shortly'
+  table: Table.ShortlyDynamoDb.tableName
 }
 
 export const ShortUrl = new Entity({

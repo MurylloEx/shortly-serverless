@@ -1,5 +1,6 @@
 import { ApiHandler } from 'sst/node/api';
 import { APIGatewayProxyEventV2, Context } from 'aws-lambda';
+import { Response } from 'src/protocols/http/payload';
 import { RequestBuilder, ResponseBuilder } from 'src/protocols/http/builders';
 import { EndpointEventHandler, EndpointHandler } from 'src/protocols/http/types';
 
@@ -13,8 +14,9 @@ export function Endpoint<T extends object>(handler: EndpointHandler<T>): Endpoin
 
     const payload = await handler(request, response);
 
-    if (payload) 
+    if (payload && !(payload instanceof Response)) {
       response.json<T>(payload);
+    }
 
     return response.toProxyResult();
   });

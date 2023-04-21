@@ -1,9 +1,11 @@
 import { Endpoint, Request, Response } from '@shortly/core/protocols';
 
 export const main = Endpoint((req: Request, res: Response) => {
-  res.status(404);
-  return {
+  return res.status(404).json({
     error: 'NotFound',
-    message: 'The requested resource was not found in this server'
-  }
+    message: 'The requested resource was not found in this server',
+    path: req.getPath(),
+    query: req.getQueryMap(),
+    params: req.getParamMap(),
+  });
 });

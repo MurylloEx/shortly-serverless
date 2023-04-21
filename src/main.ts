@@ -12,6 +12,7 @@ export const SstConfig: SSTConfig = {
     app.setDefaultFunctionProps({
       runtime: 'nodejs16.x',
       architecture: 'arm_64',
+      memorySize: '128 MB'
     });
 
     app.stack(DynamoStack).stack(ApiStack);

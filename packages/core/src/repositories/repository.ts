@@ -47,7 +47,7 @@ export class Repository<E extends ElectroEntity<S>, S extends ElectroSchema = In
   }
 
   async update(item: Partial<ElectroItem<S>> & ElectroPrimaryKey<S>, newItem: Partial<ElectroItem<S>>): Promise<ElectroItem<S>> {
-    const { data } = await this.entity.patch(item).set(newItem).go();
+    const { data } = await this.entity.update(item).set(newItem).go({ response: 'all_new' });
     return data as ElectroItem<S>;
   }
 

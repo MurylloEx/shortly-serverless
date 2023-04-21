@@ -6,9 +6,10 @@ export const main = Endpoint(async (req: Request, res: Response) => {
   const shortCode = req.param('code');
 
   if (shortCode) {
-    return await shortlyService.deleteByCode(shortCode);
+    const shortenUrl = await shortlyService.getByCode(shortCode);
+    if (shortenUrl) return shortenUrl;
   }
-  
+
   res.status(404).json({
     error: 'NotFound',
     message: 'This short code was not found in our database of shorten urls.',

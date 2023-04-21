@@ -30,27 +30,40 @@ export class Request {
     return this.getHttpContext().path;
   }
 
-  getQuery(): HttpQuery {
+  getQueryMap(): HttpQuery {
     return this.event.queryStringParameters ?? {};
   }
 
-  getParams(): HttpParams {
+  getParamMap(): HttpParams {
     return this.event.pathParameters ?? {};
   }
 
-  getHeaders(): HttpRequestHeaders {
+  getHeaderMap(): HttpRequestHeaders {
     return this.event.headers ?? {};
+  }
+
+  query(name: string): string | undefined {
+    return this.getQueryMap()[name];
+  }
+
+  param(name: string): string | undefined {
+    return this.getParamMap()[name];
+  }
+
+  header(name: string): string | number | boolean | undefined {
+    return this.getHeaderMap()[name];
   }
 
   getBody(): string {
     return this.event.body ?? '';
   }
 
-  getJson() {
+  getJson<T>(): T | undefined {
     try {
-      const body = this.getBody();
-      const isBodyString = typeof body === 'string';
-      return isBodyString ? JSON.parse(body) : undefined;
+      const contentType = <string>this.header('content-type');
+      const isJsonBody = contentType && contentType.includes('application/json');
+
+      return isJsonBody ? JSON.parse(this.getBody()) : undefined;
     } catch (e) {
       return undefined;
     }
