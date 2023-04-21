@@ -17,5 +17,3 @@ Router.group('/v1', (router) => {
 });
 
 Router.any(Lambda('any.main'));
-
-console.log(Router.build())
