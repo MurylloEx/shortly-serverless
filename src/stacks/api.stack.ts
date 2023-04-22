@@ -5,11 +5,30 @@ import { DynamoStack } from './dynamo.stack';
 export function ApiStack({ stack }: StackContext) {
   const { TableShortly } = use(DynamoStack);
 
-  const customDomain = stack.stage === 'production' 
-    ? 'shortly.com.br' 
-    : 'dev.shortly.com.br';
+  const domains: Record<string, string> = {
+    production: 'shortly.com.br',
+    develop: 'dev.shortly.com.br'
+  };
 
-  const api = new Api(stack, 'ShortlyApi', { customDomain });
+  const stageDomain = `${stack.stage}.shortly.com.br`;
+  const customDomain = domains[stack.stage] ?? stageDomain;
+
+  const api = new Api(stack, 'ShortlyApi', { 
+    customDomain,
+    defaults: {
+      throttle: {
+        burst: 25,
+        rate: 10
+      }
+    }
+  });
+
+  api.setCors({
+    allowMethods: ['ANY'],
+    allowOrigins: Object.values(domains),
+    allowHeaders: ['*'],
+    allowCredentials: false
+  });
 
   api.bind([TableShortly]);
   api.attachPermissions(['dynamodb']);
