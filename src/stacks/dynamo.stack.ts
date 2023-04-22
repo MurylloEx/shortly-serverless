@@ -6,6 +6,12 @@ export function DynamoStack({ stack }: StackContext) {
     .withScope(stack)
     .withSchema(ShortlySchema)
     .build();
+
+  stack.addOutputs({
+    DynamoTableName: TableShortly.tableName,
+    DynamoTableArn: TableShortly.tableArn,
+    DynamoStackName: stack.stackName,
+  });
   
   return { TableShortly };
 }

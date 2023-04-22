@@ -9,12 +9,15 @@ export const SstConfig: SSTConfig = {
     };
   },
   stacks(app) {
+    app.stack(DynamoStack).stack(ApiStack);
+
+    app.setDefaultRemovalPolicy(app.mode === 'dev' ? 'destroy' : 'retain');
     app.setDefaultFunctionProps({
+      tracing: 'disabled',
       runtime: 'nodejs16.x',
       architecture: 'arm_64',
-      memorySize: '128 MB'
+      memorySize: '128 MB',
+      timeout: '10 seconds'
     });
-
-    app.stack(DynamoStack).stack(ApiStack);
   }
 }

@@ -5,7 +5,11 @@ import { DynamoStack } from './dynamo.stack';
 export function ApiStack({ stack }: StackContext) {
   const { TableShortly } = use(DynamoStack);
 
-  const api = new Api(stack, 'ShortlyApi');
+  const customDomain = stack.stage === 'production' 
+    ? 'shortly.com.br' 
+    : 'dev.shortly.com.br';
+
+  const api = new Api(stack, 'ShortlyApi', { customDomain });
 
   api.bind([TableShortly]);
   api.attachPermissions(['dynamodb']);
@@ -13,5 +17,8 @@ export function ApiStack({ stack }: StackContext) {
 
   stack.addOutputs({
     ApiEndpoint: api.url,
+    ApiCustomEndpoint: api.customDomainUrl,
+    ApiHttpArn: api.httpApiArn,
+    ApiStackName: stack.stackName
   });
 }
