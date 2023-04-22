@@ -25,9 +25,9 @@ export function ApiStack({ stack }: StackContext) {
 
   api.setCors({
     allowMethods: ['ANY'],
-    allowOrigins: Object.values(domains),
     allowHeaders: ['*'],
-    allowCredentials: false
+    allowOrigins: ['https://shortly.com.br', 'https://dev.shortly.com.br'],
+    allowCredentials: false,
   });
 
   api.bind([TableShortly]);
