@@ -4,14 +4,19 @@ import { ApiStack } from './api.stack';
 export function SiteStack({ stack }: StackContext) {
   const { ApiShortly } = use(ApiStack);
 
+  const domains: Record<string, string> = {
+    production: 'shortly.com.br',
+    develop: 'dev.shortly.com.br'
+  };
+
+  const stageDomain = `${stack.stage}.shortly.com.br`;
+  const customDomain = domains[stack.stage] ?? stageDomain;
+
   const SiteShortly = new StaticSite(stack, 'ShortlySite', {
     path: 'packages/web',
     buildCommand: 'npm run build',
     buildOutput: 'dist',
-    customDomain: {
-      domainName: 'shortly.com.br',
-      domainAlias: 'www.shortly.com.br',
-    },
+    customDomain,
     environment: {
       VITE_APP_API_URL: ApiShortly.customDomainUrl!,
     },
@@ -25,13 +30,14 @@ export function SiteStack({ stack }: StackContext) {
   const SiteCloudFront = SiteShortly.cdk.distribution;
 
   stack.addOutputs({
+    SiteShortlyUrl: SiteShortly.customDomainUrl,
+    SiteCloudfrontDistributionId: SiteCloudFront.distributionId,
+    SiteCloudfrontDomainName: SiteCloudFront.distributionDomainName,
     SiteBucketName: SiteBucket.bucketName,
     SiteBucketArn: SiteBucket.bucketArn,
     SiteBucketWebsiteUrl: SiteBucket.bucketWebsiteUrl,
     SiteBucketWebsiteDomainName: SiteBucket.bucketWebsiteDomainName,
     SiteBucketRegionalDomainName: SiteBucket.bucketRegionalDomainName,
-    SiteCloudfrontDomainName: SiteCloudFront.distributionDomainName,
-    SiteCloudfrontDistributionId: SiteCloudFront.distributionId,
     SiteStackName: stack.stackName,
   });
   
