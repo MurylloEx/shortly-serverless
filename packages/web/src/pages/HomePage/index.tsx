@@ -1,5 +1,5 @@
 import { Styled } from './styles';
-import { useShorten } from 'src/hooks';
+import { ApiClient, useShorten, useUrlAnalyzer } from 'src/hooks';
 import { Fragment, FunctionComponent, useCallback, useEffect, useState } from 'react';
 import {
   Benefits,
@@ -22,16 +22,16 @@ enum HomePageView {
 
 export const HomePage: FunctionComponent = () => {
   const [currentView, setCurrentView] = useState<HomePageView>(HomePageView.BEFORE_TYPE_URL);
-
-  const [realUrl, setRealUrl] = useState<string>('');
   const [shortenUrl, setShortenUrl] = useState<string>('');
-
+  const [realUrl, setRealUrl] = useState<string>('');
+  
   const [toast, setToast] = useState({
     show: false,
     type: ToastType.INFO,
     message: ''
   });
-
+  
+  const {validate} = useUrlAnalyzer();
   const {
     create,
     result,
@@ -49,7 +49,7 @@ export const HomePage: FunctionComponent = () => {
       });
     }
     if (isSuccess && isDone) {
-      setShortenUrl(import.meta.env.VITE_API_URL + result?.shortCode);
+      setShortenUrl(ApiClient.getUri() + '/v1/code/' + result?.shortCode);
       setCurrentView(HomePageView.AFTER_TYPE_URL);
 
       setToast({
@@ -106,6 +106,7 @@ export const HomePage: FunctionComponent = () => {
                 buttonName={'Encurtar'} 
                 placeholder={'URL a ser encurtada'}
                 inputDisabled={isLoading}
+                buttonDisabled={!validate(realUrl) || isLoading}
                 onChange={(event) => setRealUrl(event.target.value)}
                 onClick={onClickShortenUrl}
               />
