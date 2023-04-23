@@ -10,13 +10,16 @@ export function SiteStack({ stack }: StackContext) {
   };
 
   const stageDomain = `${stack.stage}.shortly.com.br`;
-  const customDomain = domains[stack.stage] ?? stageDomain;
+  const domainName = domains[stack.stage] ?? stageDomain;
 
   const SiteShortly = new StaticSite(stack, 'ShortlySite', {
     path: 'packages/web',
     buildCommand: 'npm run build',
     buildOutput: 'dist',
-    customDomain,
+    customDomain: {
+      domainName,
+      hostedZone: 'shortly.com.br'
+    },
     environment: {
       VITE_APP_API_URL: ApiShortly.customDomainUrl!,
     },
