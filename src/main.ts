@@ -11,7 +11,7 @@ export const SstConfig: SSTConfig = {
   stacks(app) {
     app.stack(DynamoStack).stack(ApiStack).stack(SiteStack);
 
-    app.setDefaultRemovalPolicy(app.mode === 'dev' ? 'destroy' : 'retain');
+    app.setDefaultRemovalPolicy('destroy');
     app.setDefaultFunctionProps({
       tracing: 'disabled',
       runtime: 'nodejs16.x',
