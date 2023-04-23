@@ -13,7 +13,7 @@ import {
 } from 'src/components';
 
 import { Styled } from './styles';
-import { useViewShortenUrl, useUrlAnalyzer } from 'src/hooks';
+import { useViewShortenUrl, useUrlAnalyzer, ApiClient } from 'src/hooks';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Fragment, FunctionComponent, useEffect, useState } from 'react';
 
@@ -52,7 +52,7 @@ export const ViewerPage: FunctionComponent = () => {
       });
     }
     if (isSuccess && isDone) {
-      setShortenUrl(import.meta.env.VITE_API_URL + result?.shortCode);
+      setShortenUrl(ApiClient.getUri() + '/v1/code/' + result?.shortCode);
       setAccessCount(result?.accessCount ?? 0);
     }
     if (!isSuccess && isDone) {
