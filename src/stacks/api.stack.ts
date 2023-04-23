@@ -13,7 +13,7 @@ export function ApiStack({ stack }: StackContext) {
   const stageDomain = `${stack.stage}.shortly.com.br`;
   const customDomain = domains[stack.stage] ?? stageDomain;
 
-  const api = new Api(stack, 'ShortlyApi', { 
+  const ApiShortly = new Api(stack, 'ShortlyApi', { 
     customDomain,
     defaults: {
       throttle: {
@@ -23,21 +23,23 @@ export function ApiStack({ stack }: StackContext) {
     }
   });
 
-  api.setCors({
+  ApiShortly.setCors({
     allowMethods: ['ANY'],
     allowHeaders: ['*'],
     allowOrigins: ['*'],
     allowCredentials: false,
   });
 
-  api.bind([TableShortly]);
-  api.attachPermissions(['dynamodb']);
-  api.addRoutes(stack, Router.build());
+  ApiShortly.bind([TableShortly]);
+  ApiShortly.attachPermissions(['dynamodb']);
+  ApiShortly.addRoutes(stack, Router.build());
 
   stack.addOutputs({
-    ApiEndpoint: api.url,
-    ApiCustomEndpoint: api.customDomainUrl,
-    ApiHttpArn: api.httpApiArn,
+    ApiEndpoint: ApiShortly.url,
+    ApiCustomEndpoint: ApiShortly.customDomainUrl,
+    ApiHttpArn: ApiShortly.httpApiArn,
     ApiStackName: stack.stackName
   });
+
+  return { ApiShortly }
 }

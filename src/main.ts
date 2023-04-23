@@ -1,5 +1,5 @@
 import { SSTConfig } from 'sst';
-import { ApiStack, DynamoStack } from 'src/stacks';
+import { ApiStack, DynamoStack, SiteStack } from 'src/stacks';
 
 export const SstConfig: SSTConfig = {
   config(input) {
@@ -9,7 +9,7 @@ export const SstConfig: SSTConfig = {
     };
   },
   stacks(app) {
-    app.stack(DynamoStack).stack(ApiStack);
+    app.stack(DynamoStack).stack(ApiStack).stack(SiteStack);
 
     app.setDefaultRemovalPolicy(app.mode === 'dev' ? 'destroy' : 'retain');
     app.setDefaultFunctionProps({
