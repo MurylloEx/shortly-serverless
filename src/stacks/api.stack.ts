@@ -14,10 +14,7 @@ export function ApiStack({ stack }: StackContext) {
   const domainName = domains[stack.stage] ?? stageDomain;
 
   const ApiShortly = new Api(stack, 'ShortlyApi', { 
-    customDomain: {
-      domainName,
-      hostedZone: 'shortly.com.br'
-    },
+    customDomain: domainName,
     defaults: {
       throttle: {
         burst: 25,

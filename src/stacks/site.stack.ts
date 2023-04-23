@@ -16,10 +16,7 @@ export function SiteStack({ stack }: StackContext) {
     path: 'packages/web',
     buildCommand: 'npm run build',
     buildOutput: 'dist',
-    customDomain: {
-      domainName,
-      hostedZone: 'shortly.com.br'
-    },
+    customDomain: domainName,
     environment: {
       VITE_APP_API_URL: ApiShortly.customDomainUrl!,
     },
