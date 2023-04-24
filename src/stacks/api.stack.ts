@@ -6,7 +6,7 @@ export function ApiStack({ stack }: StackContext) {
   const { TableShortly } = use(DynamoStack);
 
   const domains: Record<string, string> = {
-    production: 'api.shortly.com.br',
+    prod: 'api.shortly.com.br',
     develop: 'api-dev.shortly.com.br'
   };
 

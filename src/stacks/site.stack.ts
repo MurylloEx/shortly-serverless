@@ -5,7 +5,7 @@ export function SiteStack({ stack }: StackContext) {
   const { ApiShortly } = use(ApiStack);
 
   const domains: Record<string, string> = {
-    production: 'shortly.com.br',
+    prod: 'shortly.com.br',
     develop: 'dev.shortly.com.br'
   };
 
