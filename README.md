@@ -1,16 +1,44 @@
-### 🌟 𝗔𝗪𝗦 𝗙𝘂𝗻𝗱𝗮𝗺𝗲𝗻𝘁𝗮𝗹𝘀:
 
-1. AWS Cloud Practitioner Essentials: http://bit.ly/3ZHeKWp
-2. AWS Technical Essentials: http://bit.ly/3KFph0d
-3. AWS Data Analytics Fundamentals: https://bit.ly/435qZyM
-4. AWS Cloud Essentials Training: http://bit.ly/3nKP5Pq
-5. A Practical Introduction to Cloud Computing: https://bit.ly/3iU2Skd
-6. Cloud Computing With AWS: https://bit.ly/3PqS3Cj
-7. Starting your Career with AWS: http://bit.ly/3WaRUF8
-   
-### 🚀 𝗜𝗻𝘁𝗲𝗿𝗺𝗲𝗱𝗶𝗮𝘁𝗲 & 𝗔𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗧𝗼𝗽𝗶𝗰𝘀:
+<h1 align="center">Shortly Web</h1>
+<p align="center">
+  <img src=".github/img/shortly.png" width="60" alt="Shortly Logo" />
+</p>
+<p align="center">
+  <img src=".github/img/sst.png" width="120" alt="SST Logo" />
+  <img src=".github/img/react.png" width="40" alt="React Logo" />
+</p>
+<h2 align="center">
+  This project was created using SST (Serverless Stack) and Amazon Web Services.
+</h2>
+<p align="center">
+  This project is a simple boilerplate and at same time a final product using: SST, AWS DynamoDB, AWS ApiGateway, AWS Lambda, AWS S3, AWS CloudFront, AWS Certificate Manager, AWS CloudFormation, AWS CloudDevelopoment Kit, etc.
+</p>
+<p align="center">
+  <img src="https://badgen.net/badge/lang/TypeScript/purple?icon=label"/> 
+  <img src="https://badgen.net/badge/license/MIT/green?icon=label"/>
+  <img src="https://badgen.net/badge/authors/Muryllo/red?icon=label"/>
+  <img src="https://badgen.net/badge/backend/SST/yellow?icon=label"/>
+  <img src="https://badgen.net/badge/frontend/React/orange?icon=label"/>
+</p>
 
-1. AWS Developer Training: http://bit.ly/3K0pfhy
-2. AWS Networking Training: http://bit.ly/412zWHD
-3. AWS Data Analytics Training: http://bit.ly/3zwyCB4
-4. AWS Solutions Architect Training: http://bit.ly/3K61dC8
+## Architecture Overview
+
+<p align="center">
+  <img src=".github/img/architecture.png" alt="Architecture" />
+</p>
+
+## Metadata
+
+```
+Muryllo Pimenta – muryllo.pimenta@upe.br
+```
+
+Distributed under MIT license. See ``LICENSE`` for more informations.
+
+## Contributing
+
+1. Fork it (<https://github.com/MurylloEx/shortly-api/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
