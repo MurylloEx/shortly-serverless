@@ -1,22 +1,23 @@
-@startuml "AWSPuml"
+@startuml "AWS Architecture Diagram"
 
 title "Shortly Architecture - Request Flow"
 
 !define AWSPUML https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v15.0/dist
 
 !include AWSPUML/AWSCommon.puml
-!include AWSPUML/Groups/all.puml
 !include AWSPUML/General/User.puml
 !include AWSPUML/General/Users.puml
+!include AWSPUML/Groups/Region.puml
+!include AWSPUML/Groups/AWSCloud.puml
 !include AWSPUML/Compute/Lambda.puml
 !include AWSPUML/Database/DynamoDB.puml
 !include AWSPUML/Storage/SimpleStorageService.puml
+!include AWSPUML/DeveloperTools/CloudDevelopmentKit.puml
 !include AWSPUML/ManagementGovernance/CloudWatch.puml
 !include AWSPUML/ManagementGovernance/CloudFormation.puml
 !include AWSPUML/ManagementGovernance/CloudFormationStack.puml
-!include AWSPUML/NetworkingContentDelivery/Route53.puml
 !include AWSPUML/NetworkingContentDelivery/CloudFront.puml
-!include AWSPUML/DeveloperTools/CloudDevelopmentKit.puml
+!include AWSPUML/NetworkingContentDelivery/Route53.puml
 !include AWSPUML/ApplicationIntegration/APIGateway.puml
 !include AWSPUML/ApplicationIntegration/APIGatewayEndpoint.puml
 !include AWSPUML/SecurityIdentityCompliance/CertificateManager.puml
