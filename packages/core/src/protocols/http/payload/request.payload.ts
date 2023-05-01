@@ -60,8 +60,8 @@ export class Request {
 
   getJson<T>(): T | undefined {
     try {
-      const contentType = <string>this.header('content-type');
-      const isJsonBody = contentType && contentType.includes('application/json');
+      const contentType = this.header('content-type');
+      const isJsonBody = contentType && String(contentType).includes('application/json');
 
       return isJsonBody ? JSON.parse(this.getBody()) : undefined;
     } catch (e) {
