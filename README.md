@@ -24,7 +24,35 @@
 ## Architecture Overview
 
 <p align="center">
-  <img src=".github/img/architecture.png" alt="Architecture" />
+  <img src=".github/img/architecture-lambda-overview.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-request-shortly-frontend.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-shorten-url.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-view-shorten-url-info-by-code.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-delete-shorten-url-by-code.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-redirect-to-real-url-by-code.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-route-not-found.svg" width="100%" alt="Architecture" />
+</p>
+
+<p align="center">
+  <img src=".github/img/flow-update-shorten-url-by-code.svg" width="100%" alt="Architecture" />
 </p>
 
 ## Metadata
