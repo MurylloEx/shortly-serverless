@@ -17,7 +17,7 @@ skinparam style strictuml
 UserParticipant(MyUser, "User", "Cliente")
 Route53Participant(MyRoute53, "Hosted Zone", "Resolvedor DNS")
 CloudFrontParticipant(MyCloudFront, "Content Delivery Network", "Provedor de Cache")
-SimpleStorageServiceParticipant(MyS3, "Bucket Público", "Repositório de arquivos")
+SimpleStorageServiceParticipant(MyS3, "Bucket Privado", "Repositório de arquivos")
 
 autonumber 1.1
 MyUser -> MyRoute53 : Solicita registro DNS A ou AAAA do domínio

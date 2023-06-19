@@ -35,12 +35,12 @@ autonumber 4.1
 MyLambda -> MyDynamoDB : Localiza a URL encurtada pelo seu código
 MyLambda -->> MyCloudWatch : Adiciona entradas nos logs para escritas e erros de execução
 autonumber 4.1
-MyDynamoDB --> MyLambda : Registro ShortenUrl da URL encurtada
+MyDynamoDB --> MyLambda : Registro ShortUrl da URL encurtada
 autonumber 3.1
-MyLambda --> MyApiGatewayEndpoint : Registro ShortenUrl da URL encurtada
+MyLambda --> MyApiGatewayEndpoint : Registro ShortUrl da URL encurtada
 autonumber 2.1
-MyApiGatewayEndpoint --> MyApiGateway : Evento APIGatewayProxyResultV2 contendo registro ShortenUrl da URL encurtada
+MyApiGatewayEndpoint --> MyApiGateway : Evento APIGatewayProxyResultV2 contendo registro ShortUrl da URL encurtada
 autonumber 1.1
-MyApiGateway --> MyUser : JSON contendo registro ShortenUrl da URL encurtada
+MyApiGateway --> MyUser : JSON contendo registro ShortUrl da URL encurtada
 
 @enduml

@@ -32,13 +32,13 @@ MyApiGateway -->> MyCloudWatch : Adiciona uma entrada nos logs contendo o Reques
 autonumber 3.1
 MyApiGatewayEndpoint -> MyLambda : Invoca a função com o contexto de chamada e o evento APIGatewayProxyEventV2
 autonumber 4.1
-MyLambda -> MyDynamoDB : Busca o registro ShortenUrl da URL encurtada pelo seu código
+MyLambda -> MyDynamoDB : Busca o registro ShortUrl da URL encurtada pelo seu código
 autonumber 4.1
-MyDynamoDB -->> MyLambda : Registro ShortenUrl da URL encurtada
+MyDynamoDB -->> MyLambda : Registro ShortUrl da URL encurtada
 autonumber 4.2
 MyLambda -> MyDynamoDB : Deleta o registro da URL encurtada pelo valor PK e SK
 autonumber 4.2
-MyDynamoDB -->> MyLambda : Antigo registro ShortenUrl da URL encurtada
+MyDynamoDB -->> MyLambda : Antigo registro ShortUrl da URL encurtada
 MyLambda -->> MyCloudWatch : Adiciona entradas nos logs para escritas e erros de execução
 autonumber 3.1
 MyLambda --> MyApiGatewayEndpoint : Código da URL encurtada excluída

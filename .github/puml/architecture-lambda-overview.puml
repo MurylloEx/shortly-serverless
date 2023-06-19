@@ -37,7 +37,7 @@ AWSCloudGroup(cloud) {
     APIGatewayEndpoint(MyApiGatewayEndpoint, "Endpoint Lambda", "Define o método, a rota e os critérios de aceitação para invocar uma função Lambda")
     Lambda(MyLambda, "Função Lambda", "Processa a solicitação e executa a funcionalidade requisitada")
     DynamoDB(MyDynamoDB, "Banco de Dados", "Armazena os dados de forma não-relacional como um conjunto de documentos JSON")
-    SimpleStorageService(MyS3, "Bucket Público", "Repositório dos arquivos estáticos do React") 
+    SimpleStorageService(MyS3, "Bucket Privado", "Repositório dos arquivos estáticos do React") 
     CloudFront(MyCloudFront, "Content Delivery Network", "Responsável por prover uma camada de cache para os recursos estáticos do React")
     CertificateManager(MyCertificateManager, "Certificado SSL", "Serviço de emissão de certificados TLS/SSL da Amazon")
     CloudWatch(MyCloudWatch, "Logs do Sistema", "Grupos de logs do API Gateway e do AWS Lambda")
